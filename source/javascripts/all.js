@@ -26,13 +26,14 @@ window.onload = function(){
     };
 
     var drawChart = function(form) {
-
       oo.load(function(){
-          var metric = new oo.Metric("78741731", "30d");
-          metric.setMetric("ga:visits");
-          metric.draw('visits');
 
-          var bar = new oo.Bar("78741731", "30d");
+          var bar = new oo.Bar("78741731");
+          bar.setOptions({
+            backgroundColor: '#d4d4d4',
+            colors: ['red'],
+            width: '500',
+          });
           bar.query.setFilter('ga:eventCategory=='+form);
 
           bar.addMetric("ga:totalEvents", "Votes");
